@@ -1,0 +1,10 @@
+SQL> SELECT * FROM ORDERS WHERE Total_Amount >= ( SELECT AVG(Total_Amount) FROM ORDERS);
+
+ORDER_ID ORDER_DATE PRODUCT_QUANTITY TOTAL_AMOUNT PAYMENT_ID CUSTOMER_ID
+-------- ---------- ---------------- ------------ ---------- -----------
+     102 15-APR-18                 3          745        112         302
+     104 18-SEP-15                 4          312        114         304
+     106 14-AUG-19                 3          522        116         306
+     109 25-MAY-23                 3          620        119         309
+
+SQL> SPOOL OFF;

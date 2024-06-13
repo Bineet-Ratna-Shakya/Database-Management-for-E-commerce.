@@ -1,0 +1,41 @@
+SQL> SELECT
+  2    Customer.Customer_ID,
+  3    Customer.Customer_Name,
+  4    Customer.Customer_Address,
+  5    Customer.Sale_Category,
+  6    Customer.Discount_Percent,
+  7    Orders.Order_ID,
+  8    Orders.Order_Date,
+  9    Product_Order_Line.Product_ID,
+ 10    Product.Product_Name,
+ 11    Product_Order_Line.Product_Quantity
+ 12  FROM
+ 13    Customer
+ 14  LEFT JOIN
+ 15    Orders ON Customer.Customer_ID = Orders.Customer_ID
+ 16  LEFT JOIN
+ 17    Product_Order_Line ON Orders.Order_ID = Product_Order_Line.Order_ID
+ 18  LEFT JOIN
+ 19    Product ON Product_Order_Line.Product_ID = Product.Product_ID;
+
+CUSTOMER_ID CUSTOMER_NAME        CUSTOMER_ADDRESS     SALE_CATEG DISCOUNT_PERCENT ORDER_ID ORDER_DATE PRODUCT_ID PRODUCT_NAME      PRODUCT_QUANTITY
+----------- -------------------- -------------------- ---------- ---------------- -------- ---------- ---------- ----------------- ----------------
+        301 Elon Musk            USA                  VIP                      25      101 05-AUG-05         401 Rice                             2
+        302 Bill Gates           USA                  STAFF                    50      102 15-APR-18         402 Smartwatch                       3
+        301 Elon Musk            USA                  VIP                      25      103 05-MAY-23         401 Rice                             1
+        304 Jeff Bezos           USA                  VIP                      70      104 18-SEP-15         401 Rice                             4
+        305 Mark Zuckerberg      USA                  REGULAR                  80      105 02-MAR-00         405 Kimono                           2
+        306 Kim Kardashian       USA                  VIP                      30      106 14-AUG-19         406 Bluetooth Speaker                3
+        307 Cristiano Ronaldo    Portugal             STAFF                    40      107 30-AUG-08         407 Spices                           1
+        305 Mark Zuckerberg      USA                  REGULAR                  80      108 12-MAY-12         408 La Dai                           2
+        309 Narendra Modi        India                REGULAR                  75      109 25-MAY-23         409 Laptop                           3
+        310 Malala Yousafzai     Pakistan             REGULAR                  10      110 25-JUN-16         410 Tea                              1
+        308 Angela Merkel        Germany              VIP                      45
+
+CUSTOMER_ID CUSTOMER_NAME        CUSTOMER_ADDRESS     SALE_CATEG DISCOUNT_PERCENT ORDER_ID ORDER_DATE PRODUCT_ID PRODUCT_NAME      PRODUCT_QUANTITY
+----------- -------------------- -------------------- ---------- ---------------- -------- ---------- ---------- ----------------- ----------------
+        303 Oprah Winfrey        USA                  REGULAR                  60
+
+12 rows selected.
+
+SQL> spool off

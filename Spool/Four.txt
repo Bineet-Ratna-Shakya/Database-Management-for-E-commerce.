@@ -1,0 +1,9 @@
+SQL> SELECT * FROM PRODUCT WHERE
+  2  SUBSTR(PRODUCT_NAME, 2, 1) = 'a' AND STOCK_QUANTITY > 50;
+
+PRODUCT_ID VENDOR_ID PRODUCT_DESCRIPTION                      STOCK_QUANTITY      PRICE PRODUCT_NAME
+---------- --------- ---------------------------------------- -------------- ---------- -----------------
+       408       508 Traditional Vietnamese Ao Dai                        62         67 La Dai
+       409       505 High-performance Laptop                              60         89 Laptop
+
+SQL> spool off

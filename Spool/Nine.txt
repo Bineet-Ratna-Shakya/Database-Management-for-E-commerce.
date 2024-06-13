@@ -1,0 +1,24 @@
+SQL> SELECT * FROM (
+  2      SELECT
+  3          Product.Product_ID,
+  4          Product.Product_Name,
+  5          Product.Product_Description,
+  6          NVL(SUM(Product_Order_Line.Product_Quantity), 0) AS Total_Orders
+  7      FROM
+  8          Product
+  9      LEFT JOIN
+ 10          Product_Order_Line ON Product.Product_ID = Product_Order_Line.Product_ID
+ 11      GROUP BY
+ 12          Product.Product_ID, Product.Product_Name, Product.Product_Description
+ 13      ORDER BY
+ 14          Total_Orders DESC
+ 15  )
+ 16  WHERE ROWNUM <= 3;
+
+PRODUCT_ID PRODUCT_NAME                   PRODUCT_DESCRIPTION                      TOTAL_ORDERS
+---------- ------------------------------ ---------------------------------------- ------------
+       401 Rice                           High-quality Basmati Rice                           7
+       409 Laptop                         High-performance Laptop                             3
+       406 Bluetooth Speaker              Wireless Bluetooth Speaker                          3
+
+SQL> spool off

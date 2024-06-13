@@ -1,0 +1,8 @@
+SQL> SELECT DISTINCT Customer_ID FROM Orders
+  2  WHERE order_date = (SELECT MAX(order_date) FROM orders);
+
+CUSTOMER_ID
+-----------
+        309
+
+SQL> SPOOL OFF;

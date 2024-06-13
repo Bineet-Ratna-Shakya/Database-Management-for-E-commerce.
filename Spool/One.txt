@@ -1,0 +1,8 @@
+SQL> SELECT * FROM CUSTOMER WHERE SALE_CATEGORY = 'STAFF';
+
+CUSTOMER_ID CUSTOMER_NAME        CUSTOMER_EMAIL                 CUSTOMER_ADDRESS SALE_CATEGORY DISCOUNT_PERCENT
+----------- -------------------- ------------------------------ ---------------- ------------- ----------------
+        302 Bill Gates           billgates@gmail.com            USA              STAFF                       50
+        307 Cristiano Ronaldo    cristianoronaldo@gmail.com     Portugal         STAFF                       40
+
+SQL> SPOOL OFF;

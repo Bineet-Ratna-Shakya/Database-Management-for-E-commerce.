@@ -1,0 +1,18 @@
+SQL> SELECT
+  2    Vendor.Vendor_ID,
+  3    Vendor.Vendor_Name,
+  4    COUNT(Product.Product_ID) AS Supplied_Products
+  5  FROM
+  6    Vendor
+  7  JOIN
+  8    Product ON Vendor.Vendor_ID = Product.Vendor_ID
+  9  GROUP BY
+ 10    Vendor.Vendor_ID, Vendor.Vendor_Name
+ 11  HAVING
+ 12    COUNT(Product.Product_ID) > 3;
+
+VENDOR_ID VENDOR_NAME                    SUPPLIED_PRODUCTS
+--------- ------------------------------ -----------------
+      505 Silk Emporium                                  4
+
+SQL> SPOOL OFF
